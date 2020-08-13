@@ -178,7 +178,7 @@ class mod_customcert_task_email_certificate_task_testcase extends advanced_testc
 
         // Create a custom certificate.
         $this->getDataGenerator()->create_module('customcert', array('course' => $course->id,
-            'emailothers' => 'testcustomcert@example.com, doo@dah'));
+            'emailothers' => 'testcustomcert@example.com, doo@dah_'));
 
         // Run the task.
         $sink = $this->redirectEmails();
