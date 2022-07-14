@@ -251,10 +251,12 @@ class certificate {
         // Get the conditional SQL.
         list($conditionssql, $conditionsparams) = self::get_conditional_issues_sql($cm, $groupmode);
 
-        // If it is empty then return an empty array.
-        if (empty($conditionsparams)) {
-            return array();
-        }
+        // WR386270 - totara returns an empty array of params when given an integer params array to get in or equal
+        //
+        // // If it is empty then return an empty array.
+        // if (empty($conditionsparams)) {
+        //     //return array();
+        // }
 
         // Add the conditional SQL and the customcertid to form all used parameters.
         $allparams = $conditionsparams + array('customcertid' => $customcertid);
@@ -292,10 +294,11 @@ class certificate {
         // Get the conditional SQL.
         list($conditionssql, $conditionsparams) = self::get_conditional_issues_sql($cm, $groupmode);
 
-        // If it is empty then return 0.
-        if (empty($conditionsparams)) {
-            return 0;
-        }
+        // WR386270 - totara returns an empty array of params when given an integer params array to get in or equal
+        // // If it is empty then return 0.
+        // if (empty($conditionsparams)) {
+        //     //return 0;
+        // }
 
         // Add the conditional SQL and the customcertid to form all used parameters.
         $allparams = $conditionsparams + array('customcertid' => $customcertid);
