@@ -151,7 +151,7 @@ if (!$downloadown && !$downloadissue) {
     }
     echo $OUTPUT->footer($course);
     exit();
-} else if ($canreceive || $canmanage) { // Output to pdf.
+} else if ($canreceive || $canviewreport) { // Output to pdf.
     // Set the userid value of who we are downloading the certificate for.
     $userid = $USER->id;
     if ($downloadown) {
