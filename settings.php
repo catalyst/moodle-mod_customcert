@@ -51,6 +51,11 @@ $settings->add(new \mod_customcert\admin_setting_link('customcert/uploadimage',
     get_string('uploadimage', 'customcert'), get_string('uploadimagedesc', 'customcert'),
     get_string('uploadimage', 'customcert'), new moodle_url('/mod/customcert/upload_image.php'), ''));
 
+$settings->add(new admin_setting_configcheckbox('customcert/returncourse',
+        get_string('returncourse', 'customcert'),
+        get_string('returncourse_desc', 'customcert'),
+        0));
+
 $settings->add(new admin_setting_heading('defaults',
     get_string('modeditdefaults', 'admin'), get_string('condifmodeditdefaults', 'admin')));
 
