@@ -35,7 +35,7 @@ global $CFG;
  * @copyright  2017 Mark Nelson <markn@moodle.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class mod_customcert_task_email_certificate_task_testcase extends advanced_testcase {
+class mod_customcert_task_email_certificate_task_test extends \core_phpunit\testcase {
 
     /**
      * Test set up.
