@@ -202,7 +202,7 @@ class mobile {
      * @param \context $context
      * @param string $cap
      */
-    protected static function require_capability(\stdClass $cm, \context $context, $cap) {
+    protected static function require_capability(\stdClass $cm, \context $context, string $cap) {
         require_login($cm->course, false, $cm, true, true);
         require_capability($cap, $context);
     }

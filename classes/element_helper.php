@@ -389,7 +389,7 @@ class element_helper {
      * @param int $elementid The element id
      * @return \context The context
      */
-    public static function get_context($elementid) {
+    public static function get_context(int $elementid) : \context {
         global $DB;
 
         $sql = "SELECT ct.contextid

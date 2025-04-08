@@ -9,8 +9,8 @@ cache:
     - $HOME/.npm
 
 php:
- - 5.6
- - 7.1
+ - 7.0
+ - 7.2
 
 addons:
  firefox: 47.0.1
@@ -22,7 +22,7 @@ addons:
 
 env:
  global:
-  - MOODLE_BRANCH=MOODLE_33_STABLE
+  - MOODLE_BRANCH=MOODLE_34_STABLE
   - IGNORE_NAMES=mobile_*.mustache # Mobile mustache has specific syntax, ignore their templates
  matrix:
   - DB=pgsql
