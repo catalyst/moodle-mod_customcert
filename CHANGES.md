@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. 
+All notable changes to this project will be documented in this file.
 
 Note - All hash comments refer to the issue number. Eg. #169 refers to https://github.com/markn86/moodle-mod_customcert/issues/169.
 
@@ -18,12 +18,14 @@ Note - All hash comments refer to the issue number. Eg. #169 refers to https://g
 
 ### Fixed
 
+- Missing implementation for privacy provider (#260).
 - Use course module context when calling format_string/text (#200).
 - Exception being thrown when adding the 'teachername' element to site template (#261).
 
-## [3.3.15] - 2018-12-20
+## [3.4.6] - 2018-12-20
 ### Added
 
+- GDPR: Add support for removal of users from a context (see MDL-62560) (#252).
 - Images can be made transparent (#186).
 - Set default values of activity instance settings (#180).
 - Allow element plugins to control if they can be added to a certificate (#225).
@@ -85,15 +87,15 @@ Note - All hash comments refer to the issue number. Eg. #169 refers to https://g
     their certificate. It also allows teachers to view the
     list of issued certificates, with the ability to revoke
     any.
-    
-    This is for the soon-to-be released Moodle Mobile v3.5.0 
+
+    This is for the soon-to-be released Moodle Mobile v3.5.0
     (not to be confused with your Moodle site version) and
     will not work on Mobile versions earlier than this.
-    
+
     If you are running a Moodle site on version 3.4 or below
     you will need to install the local_mobile plugin in order
     for this to work.
-    
+
     If you are running a Moodle site on version 3.0 or below
     then you will need to upgrade.
 ```
