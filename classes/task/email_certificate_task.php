@@ -49,7 +49,6 @@ class email_certificate_task extends \core\task\scheduled_task {
     public function execute() {
         global $DB;
 
-        $lastruntime = $DB->get_field('task_scheduled', 'lastruntime', ['classname' => "\\" . self::class]);
         // Get all the certificates that have requested someone get emailed.
         $emailotherslengthsql = $DB->sql_length('c.emailothers');
         $sql = "SELECT c.*, ct.id as templateid, ct.name as templatename, ct.contextid, co.id as courseid,
@@ -61,14 +60,8 @@ class email_certificate_task extends \core\task\scheduled_task {
                     ON c.course = co.id
                  WHERE (c.emailstudents = :emailstudents
                         OR c.emailteachers = :emailteachers
-                        OR $emailotherslengthsql >= 3)
-                   AND :lastruntime <= (
-                  SELECT MAX(ula.timeaccess)
-                    FROM {user_lastaccess} ula
-                   WHERE ula.courseid = co.id
-                   )";
-
-        if (!$customcerts = $DB->get_records_sql($sql, ['emailstudents' => 1, 'emailteachers' => 1, "lastruntime" => $lastruntime])) {
+                        OR $emailotherslengthsql >= 3)";
+        if (!$customcerts = $DB->get_records_sql($sql, array('emailstudents' => 1, 'emailteachers' => 1))) {
             return;
         }
 
