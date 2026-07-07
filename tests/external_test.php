@@ -35,7 +35,7 @@ global $CFG;
  * @copyright  2018 Mark Nelson <markn@moodle.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class mod_customcert_external_test_testcase extends advanced_testcase {
+class mod_customcert_external_test extends \core_phpunit\testcase {
 
     /**
      * Test set up.
