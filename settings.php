@@ -26,15 +26,15 @@ defined('MOODLE_INTERNAL') || die;
 
 $url = $CFG->wwwroot . '/mod/customcert/verify_certificate.php';
 
-$ADMIN->add('modsettings', new admin_category('customcert', get_string('pluginname', 'mod_customcert')));
-$settings = new admin_settingpage('modsettingcustomcert', new lang_string('customcertsettings', 'mod_customcert'));
+$ADMIN->add('modsettings', new \core\setting\part\category('customcert', get_string('pluginname', 'mod_customcert')));
+$settings = new \core\setting\part\page('modsettingcustomcert', new lang_string('customcertsettings', 'mod_customcert'));
 
-$settings->add(new admin_setting_configcheckbox('customcert/verifyallcertificates',
+$settings->add(new \core\setting\type\checkbox('customcert/verifyallcertificates',
     get_string('verifyallcertificates', 'customcert'),
     get_string('verifyallcertificates_desc', 'customcert', $url),
     0));
 
-$settings->add(new admin_setting_configcheckbox('customcert/showposxy',
+$settings->add(new \core\setting\type\checkbox('customcert/showposxy',
     get_string('showposxy', 'customcert'),
     get_string('showposxy_desc', 'customcert'),
     0));
@@ -51,7 +51,7 @@ $settings->add(new \mod_customcert\admin_setting_link('customcert/uploadimage',
     get_string('uploadimage', 'customcert'), get_string('uploadimagedesc', 'customcert'),
     get_string('uploadimage', 'customcert'), new moodle_url('/mod/customcert/upload_image.php'), ''));
 
-$settings->add(new admin_setting_heading('defaults',
+$settings->add(new \core\setting\heading('defaults',
     get_string('modeditdefaults', 'admin'), get_string('condifmodeditdefaults', 'admin')));
 
 $yesnooptions = [
@@ -59,26 +59,26 @@ $yesnooptions = [
     1 => get_string('yes'),
 ];
 
-$settings->add(new admin_setting_configselect('customcert/emailstudents',
+$settings->add(new \core\setting\type\select('customcert/emailstudents',
     get_string('emailstudents', 'customcert'), get_string('emailstudents_help', 'customcert'), 0, $yesnooptions));
-$settings->add(new admin_setting_configselect('customcert/emailteachers',
+$settings->add(new \core\setting\type\select('customcert/emailteachers',
     get_string('emailteachers', 'customcert'), get_string('emailteachers_help', 'customcert'), 0, $yesnooptions));
-$settings->add(new admin_setting_configtext('customcert/emailothers',
+$settings->add(new \core\setting\type\text('customcert/emailothers',
     get_string('emailothers', 'customcert'), get_string('emailothers_help', 'customcert'), '', PARAM_TEXT));
-$settings->add(new admin_setting_configselect('customcert/verifyany',
+$settings->add(new \core\setting\type\select('customcert/verifyany',
     get_string('verifycertificateanyone', 'customcert'), get_string('verifycertificateanyone_help', 'customcert'),
     0, $yesnooptions));
-$settings->add(new admin_setting_configtext('customcert/requiredtime',
+$settings->add(new \core\setting\type\text('customcert/requiredtime',
     get_string('coursetimereq', 'customcert'), get_string('coursetimereq_help', 'customcert'), 0, PARAM_INT));
-$settings->add(new admin_setting_configcheckbox('customcert/protection_print',
+$settings->add(new \core\setting\type\checkbox('customcert/protection_print',
     get_string('preventprint', 'customcert'),
     get_string('preventprint_desc', 'customcert'),
     0));
-$settings->add(new admin_setting_configcheckbox('customcert/protection_modify',
+$settings->add(new \core\setting\type\checkbox('customcert/protection_modify',
     get_string('preventmodify', 'customcert'),
     get_string('preventmodify_desc', 'customcert'),
     0));
-$settings->add(new admin_setting_configcheckbox('customcert/protection_copy',
+$settings->add(new \core\setting\type\checkbox('customcert/protection_copy',
     get_string('preventcopy', 'customcert'),
     get_string('preventcopy_desc', 'customcert'),
     0));
@@ -86,7 +86,7 @@ $settings->add(new admin_setting_configcheckbox('customcert/protection_copy',
 $ADMIN->add('customcert', $settings);
 
 // Element plugin settings.
-$ADMIN->add('customcert', new admin_category('customcertelements', get_string('elementplugins', 'customcert')));
+$ADMIN->add('customcert', new \core\setting\part\category('customcertelements', get_string('elementplugins', 'customcert')));
 $plugins = \core_plugin_manager::instance()->get_plugins_of_type('customcertelement');
 foreach ($plugins as $plugin) {
     $plugin->load_settings($ADMIN, 'customcertelements', $hassiteconfig);

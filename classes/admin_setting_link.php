@@ -35,7 +35,7 @@ require_once($CFG->libdir.'/adminlib.php');
  * @copyright  2013 Mark Nelson <markn@moodle.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class admin_setting_link extends \admin_setting_configtext {
+class admin_setting_link extends \core\setting\type\text {
 
     /**
      * @var string the link.
