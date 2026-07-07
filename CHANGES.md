@@ -4,13 +4,7 @@ All notable changes to this project will be documented in this file.
 
 Note - All hash comments refer to the issue number. Eg. #169 refers to https://github.com/markn86/moodle-mod_customcert/issues/169.
 
-## [3.3.17] - 2019-02-04
-
-### Fixed
-
-- Fixed invalid syntax for PHP 5.6 as it is still supported in 3.3.
-
-## [3.3.16] - 2019-02-04
+## [3.4.7] - 2018-12-31
 
 ### Changed
 
@@ -18,12 +12,14 @@ Note - All hash comments refer to the issue number. Eg. #169 refers to https://g
 
 ### Fixed
 
+- Missing implementation for privacy provider (#260).
 - Use course module context when calling format_string/text (#200).
 - Exception being thrown when adding the 'teachername' element to site template (#261).
 
-## [3.3.15] - 2018-12-20
+## [3.4.6] - 2018-12-20
 ### Added
 
+- GDPR: Add support for removal of users from a context (see MDL-62560) (#252).
 - Images can be made transparent (#186).
 - Set default values of activity instance settings (#180).
 - Allow element plugins to control if they can be added to a certificate (#225).
@@ -46,7 +42,7 @@ Note - All hash comments refer to the issue number. Eg. #169 refers to https://g
 - Removed incorrect course reset logic (#223).
 - Description strings referring to the wrong setting (#254).
 
-## [3.3.14] - 2018-07-13
+## [3.4.5] - 2018-07-13
 ### Fixed
 
 - Use custom fonts if present (#211).
@@ -61,7 +57,7 @@ Note - All hash comments refer to the issue number. Eg. #169 refers to https://g
   - One big change here is combining the report and activity view page into one.
 - Allow short dates with leading zeros (#210).
 
-## [3.3.13] - 2018-06-26
+## [3.4.4] - 2018-06-26
 ### Fixed
 
 - Respect filters in the 'My certificates' and 'Verify certificate' pages (#197).
@@ -72,12 +68,12 @@ Note - All hash comments refer to the issue number. Eg. #169 refers to https://g
 
 - Multiple UX improvements to both the browser and mobile views (#203).
 
-## [3.3.12] - 2018-06-07
+## [3.4.3] - 2018-06-07
 ### Fixed
 
 - Hotfix to prevent misalignment of 'text' elements after last release (#196).
 
-## [3.3.11] - 2018-06-06
+## [3.4.2] - 2018-06-06
 ### Added
 - Mobile app support (#70).
 ```
@@ -109,7 +105,7 @@ Note - All hash comments refer to the issue number. Eg. #169 refers to https://g
 - No longer display the 'action' column and user picture URL when downloading the user report (#192).
 - Elements no longer ignore filters (#170).
 
-## [3.3.10] - 2018-05-17
+## [3.4.1] - 2018-05-17
 ### Added
 - GDPR Compliance (#189).
 

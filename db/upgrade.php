@@ -121,31 +121,6 @@ function xmldb_customcert_upgrade($oldversion) {
         upgrade_mod_savepoint(true, 2017050502, 'customcert');
     }
 
-    if ($oldversion < 2017050506) {
-        $table = new xmldb_table('customcert_elements');
-        $field = new xmldb_field('size');
-
-        // Rename column as it is a reserved word in Oracle.
-        if ($dbman->field_exists($table, $field)) {
-            $field->set_attributes(XMLDB_TYPE_INTEGER, '10', null, null, null, null, 'font');
-            $dbman->rename_field($table, $field, 'fontsize');
-        }
-
-        // Savepoint reached.
-        upgrade_mod_savepoint(true, 2017050506, 'customcert');
-    }
-
-    if ($oldversion < 2017050515) {
-        $table = new xmldb_table('customcert_elements');
-        $field = new xmldb_field('element', XMLDB_TYPE_CHAR, '255', null, XMLDB_NOTNULL, null, null, 'name');
-
-        // Alter the 'element' column to be characters, rather than text.
-        $dbman->change_field_type($table, $field);
-
-        // Savepoint reached.
-        upgrade_mod_savepoint(true, 2017050515, 'customcert');
-    }
-
     if ($oldversion < 2017050518.01) {
         $table = new xmldb_table('customcert');
         $index = new xmldb_index('templateid', XMLDB_INDEX_UNIQUE, ['templateid']);
@@ -164,6 +139,31 @@ function xmldb_customcert_upgrade($oldversion) {
         $dbman->add_key($table, $key);
 
         upgrade_mod_savepoint(true, 2017050518.01, 'customcert');
+    }
+
+    if ($oldversion < 2017050506) {
+        $table = new xmldb_table('customcert_elements');
+        $field = new xmldb_field('size');
+
+        // Rename column as it is a reserved word in Oracle.
+        if ($dbman->field_exists($table, $field)) {
+            $field->set_attributes(XMLDB_TYPE_INTEGER, '10', null, null, null, null, 'font');
+            $dbman->rename_field($table, $field, 'fontsize');
+        }
+
+        // Savepoint reached.
+        upgrade_mod_savepoint(true, 2017050506, 'customcert');
+    }
+
+    if ($oldversion < 2017111306) {
+        $table = new xmldb_table('customcert_elements');
+        $field = new xmldb_field('element', XMLDB_TYPE_CHAR, '255', null, XMLDB_NOTNULL, null, null, 'name');
+
+        // Alter the 'element' column to be characters, rather than text.
+        $dbman->change_field_type($table, $field);
+
+        // Savepoint reached.
+        upgrade_mod_savepoint(true, 2017111306, 'customcert');
     }
 
     return true;

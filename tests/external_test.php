@@ -27,8 +27,6 @@ defined('MOODLE_INTERNAL') || die();
 
 global $CFG;
 
-require_once($CFG->dirroot . '/webservice/tests/helpers.php');
-
 /**
  * Unit tests for the webservices.
  *
@@ -37,12 +35,12 @@ require_once($CFG->dirroot . '/webservice/tests/helpers.php');
  * @copyright  2018 Mark Nelson <markn@moodle.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class mod_customcert_external_test extends externallib_advanced_testcase {
+class mod_customcert_external_test_testcase extends advanced_testcase {
 
     /**
      * Test set up.
      */
-    public function setUp(): void {
+    public function setUp() {
         $this->resetAfterTest();
     }
 
