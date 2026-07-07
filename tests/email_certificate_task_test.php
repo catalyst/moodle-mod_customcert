@@ -150,11 +150,11 @@ class mod_customcert_task_email_certificate_task_test extends \core_phpunit\test
         // Confirm that we only sent out 2 emails, both emails to the teacher for the two students.
         $this->assertCount(2, $emails);
 
-        $this->assertStringContainsString(fullname($user3), utf8_encode($emails[0]->header));
+        $this->assertStringContainsString(fullname($user3), $emails[0]->header);
         $this->assertEquals($CFG->noreplyaddress, $emails[0]->from);
         $this->assertEquals($user3->email, $emails[0]->to);
 
-        $this->assertStringContainsString(fullname($user3), utf8_encode($emails[1]->header));
+        $this->assertStringContainsString(fullname($user3), ($emails[1]->header));
         $this->assertEquals($CFG->noreplyaddress, $emails[1]->from);
         $this->assertEquals($user3->email, $emails[1]->to);
     }
@@ -189,11 +189,11 @@ class mod_customcert_task_email_certificate_task_test extends \core_phpunit\test
         // Confirm that we only sent out 2 emails, both emails to the other address that was valid for the two students.
         $this->assertCount(2, $emails);
 
-        $this->assertStringContainsString(fullname(get_admin()), utf8_encode($emails[0]->header));
+        $this->assertStringContainsString(fullname(get_admin()), ($emails[0]->header));
         $this->assertEquals($CFG->noreplyaddress, $emails[0]->from);
         $this->assertEquals('testcustomcert@example.com', $emails[0]->to);
 
-        $this->assertStringContainsString(fullname(get_admin()), utf8_encode($emails[1]->header));
+        $this->assertStringContainsString(fullname(get_admin()), ($emails[1]->header));
         $this->assertEquals($CFG->noreplyaddress, $emails[1]->from);
         $this->assertEquals('testcustomcert@example.com', $emails[1]->to);
     }
