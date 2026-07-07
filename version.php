@@ -30,4 +30,4 @@ $plugin->cron      = 0; // Period for cron to check this module (secs).
 $plugin->component = 'mod_customcert';
 
 $plugin->maturity  = MATURITY_STABLE;
-$plugin->release   = "20.0"; // User-friendly version number.
+$plugin->release   = "3.4.7"; // User-friendly version number.
