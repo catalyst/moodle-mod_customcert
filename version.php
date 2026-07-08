@@ -24,7 +24,7 @@
 
 defined('MOODLE_INTERNAL') || die('Direct access to this script is forbidden.');
 
-$plugin->version   = 2026070800;
+$plugin->version   = 2017111308.01;
 $plugin->requires  = 2026011500; // Requires Totara 20.
 $plugin->cron      = 0; // Period for cron to check this module (secs).
 $plugin->component = 'mod_customcert';
