@@ -40,7 +40,7 @@ class mod_customcert_external_test extends \core_phpunit\testcase {
     /**
      * Test set up.
      */
-    public function setUp() {
+    public function setUp(): void {
         $this->resetAfterTest();
     }
 
